@@ -41,11 +41,7 @@ jobs:
     needs: [deploy]
     runs-on: ubuntu-latest
     container: cypress/included:10.3.0
-    defaults:
-      run:
-        working-directory: frontend
-    steps:
-      - uses: actions/checkout@v3
+    steps:  
       - run: cypress run --config-file=cypress.config.js
       - uses: actions/upload-artifact@v3.1.1
         if: always()
